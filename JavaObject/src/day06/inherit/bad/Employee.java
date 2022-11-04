@@ -1,7 +1,7 @@
 package day06.inherit.bad;
 
 public class Employee {
-
+	//test
 	String name;
 	int age;
 	String department; // 부서

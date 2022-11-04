@@ -4,6 +4,7 @@ public class StrEquals {
 
 	public static void main(String[] args) {
 		//test
+		//test2
 		String str1 = "홍길자";
 		String str2 = "홍길자";
 		String str3 = new String("홍길자");
