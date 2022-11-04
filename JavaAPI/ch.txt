@@ -1,0 +1,12 @@
+naver,한국
+kakao,한국
+google,미국
+naver,한국
+kakao,한국
+google,미국
+naver,한국
+kakao,한국
+google,미국
+naver,한국
+kakao,한국
+google,미국
