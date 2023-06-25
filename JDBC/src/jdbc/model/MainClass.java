@@ -11,7 +11,6 @@ public class MainClass {
 	public static final String UPW = "hr";
 	
 	public static void main(String[] args) {
-		
 		Scanner scan = new Scanner(System.in);
 		
 		//DAO 클래스 선언
@@ -19,17 +18,12 @@ public class MainClass {
 		String menu = "";
 		
 		while(true) {
-			
 			try {
 				System.out.println("메뉴 [ 1.저장, 2.조회 ] \n>");
-				
 				menu = scan.nextLine();
-				
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
-				
-				
 				switch (menu) {
 				case "1" :
 					System.out.print("이름>");
@@ -39,7 +33,6 @@ public class MainClass {
 					
 					//이 아래부터 1끝까지 메서드화 되어 AuthDAO로 들어가야 함
 					int result = authDAO.insertEx(name, job);
-					
 					if (result == 1) {
 						System.out.println("정상 값이 입력되었습니다");
 					} else {
@@ -48,25 +41,15 @@ public class MainClass {
 					break;
 				
 				case "2":
-					
 					ArrayList<AuthVO> list = authDAO.selectEx();
 					for(AuthVO vo : list) {
 						System.out.println(vo.toString());
 					}
-					
 					break;
-					
 					
 				default:
-					
 					break;
-				}
-		
-				
-			
-			
+				} //end switch
 		}
-		
-		
-	}
+	} //end main
 }

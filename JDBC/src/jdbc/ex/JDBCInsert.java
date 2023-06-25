@@ -12,20 +12,20 @@ public class JDBCInsert {
 		String uid = "hr"; //계정 아이디
 		String upw = "hr"; //비밀번호
 		
-		
-		String sql = "insert into auth values( seq_auth.nextval , ?, ?)"; //auth 컬럼 3개임
+		String sql = "insert into auth values( seq_auth.nextval , ?, ?)"; //auth 컬럼 3개
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 		// throws exception을 던지니까 try-catch
 		try {
 			//드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			//connection
+			//connection - DB 연결
 			conn = DriverManager.getConnection(url, uid, upw);
 			
-			//statement 객체
+			//statement 객체 - sql문을 실행시키기 위한 query 전송 객체
 			pstmt = conn.prepareStatement(sql);
 			
 			//?값 세팅 - 첫번째부터 1번 순서 (setString, setInt, setDate, setTimestamp)
@@ -41,23 +41,16 @@ public class JDBCInsert {
 				System.out.println("실패");
 			}
 			
-		}catch(Exception e ) {
+		} catch(Exception e ) {
 			e.printStackTrace(); //에러 로그를 봐야 하니까
 		} finally {
-			
 			try { //객체 계속 쌓여서 close 필수로 해줌
 				conn.close();
 				pstmt.close();
 			} catch (Exception e2) {
 				System.out.println("close 에러");
 			}
-			
-		}
-		
-		
-		
-		
-		
-		
-	}
+		} //end try ~ catch ~ finally 
+
+	} //end main
 }

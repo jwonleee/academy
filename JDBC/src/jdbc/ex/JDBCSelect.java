@@ -24,11 +24,11 @@ public class JDBCSelect {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			//conn
 			conn = DriverManager.getConnection(url, uid, upw);
-			//stmt
+			//pstmt
 			pstmt = conn.prepareStatement(sql);
 			//?값에 대한 처리 x
 			
-			//sql 실행 (select의 실행)
+			//sql 실행 (select의 실행 - 데이터를 가져오는 작업)
 			rs = pstmt.executeQuery();
 			//executeQuery는 ResultSet형으로 반환
 			//그대로 실행된 결과가 rs에 담김
@@ -44,20 +44,16 @@ public class JDBCSelect {
 			
 			}
 				
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			
 			try { //객체 계속 쌓여서 close 필수로 해줌
 				conn.close();
 				pstmt.close();
 			} catch (Exception e2) {
 				System.out.println("close 에러");
 			}
-			
-		}
+		} //end try ~ catch ~ finally 
 
-		
-	}
+	} //end main
 }

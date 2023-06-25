@@ -13,7 +13,6 @@ public class JDBCSelect2 {
 		 * 사원수를 입력받습니다.
 		 * employees, departments 테이블에서 부서별 사원수가 입력받은 사원수보다 큰 데이터를 select
 		 * 출력할 컬럼은 부서명, 사원수, 부서아이디
-		 * 
 		 */
 		
 		Scanner scan = new Scanner(System.in);
@@ -28,12 +27,12 @@ public class JDBCSelect2 {
 		String upw = "hr"; //비밀번호
 		
 		String sql = "select d.department_name, a.total, d.department_id\r\n"
-				+ "from departments d\r\n"
-				+ "inner join (select department_id, count(*) as total\r\n"
-				+ "                from employees e\r\n"
-				+ "                group by department_id) a\r\n"
-				+ "on d.department_id = a.department_id\r\n"
-				+ "where total > ?";
+					+ "from departments d\r\n"
+					+ "inner join (select department_id, count(*) as total\r\n"
+					+ "            from employees e\r\n"
+					+ "            group by department_id) a\r\n"
+					+ "on d.department_id = a.department_id\r\n"
+					+ "where total > ?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -57,25 +56,16 @@ public class JDBCSelect2 {
 				System.out.println("부서명:" + department_name + ", 사원수:" + total + ",부서아이디:" + department_id);
 			}
 			
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			
 			try { //객체 계속 쌓여서 close 필수로 해줌
 				conn.close();
 				pstmt.close();
 			} catch (Exception e2) {
 				System.out.println("close 에러");
 			}
-			
-		}
+		} //end try ~ catch ~ finally 
 		
-		
-		
-		
-		
-		
-	}
+	} //end main
 }

@@ -53,7 +53,6 @@ public class JDBCUpdate {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			
 			try { //객체 계속 쌓여서 close 필수로 해줌
 				conn.close();
 				pstmt.close();
@@ -61,9 +60,7 @@ public class JDBCUpdate {
 			} catch (Exception e2) {
 				System.out.println("close 에러");
 			}
-		
-		}
-		
-		
-	}
+		} //end try ~ catch ~ finally 
+
+	} //end main
 }

@@ -26,7 +26,6 @@ public class AuthVO {
 		return "AuthVO [auth_id=" + auth_id + ", name=" + name + ", job=" + job + "]";
 	}
 	
-	
 	//getter, setter
 	public int getAuth_id() {
 		return auth_id;
@@ -51,7 +50,5 @@ public class AuthVO {
 	public void setJob(String job) {
 		this.job = job;
 	}
-	
-	
 	
 }

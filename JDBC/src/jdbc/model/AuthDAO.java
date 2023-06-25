@@ -18,7 +18,6 @@ public class AuthDAO { //단순 연결
 	public int insertEx(String name, String job) {
 		int result = 0;
 		
-		
 		String sql = "insert into auth values( seq_auth.nextval , ?, ?)"; //auth 컬럼 3개임
 		
 		Connection conn = null;
@@ -40,31 +39,23 @@ public class AuthDAO { //단순 연결
 			
 			//sql 실행 (select문은 query 문장으로 실행, i, d, u문은 update 메서드로 실행) - i,d,u는 완전 똑같음 sql문만 바뀜
 			result = pstmt.executeUpdate(); //업데이트문은 정수형 반환, 성공(1), 실패(0) 반환
-			
-			
 		}catch(Exception e ) {
 			e.printStackTrace(); //에러 로그를 봐야 하니까
 		}finally {
-			
 			try { //객체 계속 쌓여서 close 필수로 해줌
 				conn.close();
 				pstmt.close();
 			} catch (Exception e2) {
 				System.out.println("close 에러");
 			}
-			
 		}
-		
-		
 		return result; //성공하면 sql값 반환, 실패하면 0 반환
 	}
 	
 	
 	//조회메서드
 	public ArrayList<AuthVO> selectEx() {
-		
 		ArrayList<AuthVO> list = new ArrayList<>();
-		
 		
 		String sql = "select * from auth order by auth_id desc"; //?가 없으니까 아래에서 딱히 할게 없음
 		
@@ -98,10 +89,7 @@ public class AuthDAO { //단순 연결
 				//vo를 list에 저장
 				AuthVO vo = new AuthVO(auth_id, name, job);
 				list.add(vo);
-				
 			}
-				
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -115,8 +103,6 @@ public class AuthDAO { //단순 연결
 			}
 			
 		}
-		
-		
 		return list;
 	}
 	
